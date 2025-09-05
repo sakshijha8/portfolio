@@ -39,7 +39,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <section id="portfolio" className="relative min-h-screen flex items-center justify-center overflow-hidden py-10 px-4 sm:px-6">
+    <section id="portfolio" className="relative min-h-screen flex items-center justify-center overflow-hidden py-10 pt-16 md:pt-10 px-4 sm:px-6">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
