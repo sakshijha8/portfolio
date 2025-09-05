@@ -54,7 +54,7 @@ const Experience: React.FC = () => {
   };
 
   return (
-    <section id="experience" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6">
+    <section id="experience" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gray-50 dark:bg-gray-900/50">
       <motion.div
         ref={ref}
         variants={containerVariants}

@@ -68,7 +68,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-20 px-6 mt-16 md:mt-0">
+    <section id="projects" className="py-20 px-6">
       <motion.div
         ref={ref}
         variants={containerVariants}

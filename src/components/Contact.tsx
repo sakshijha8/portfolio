@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-6">
+    <section id="contact" className="py-20 px-6 bg-white/50 dark:bg-gray-800/50">
       <motion.div
         ref={ref}
         variants={containerVariants}

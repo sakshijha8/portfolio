@@ -22,16 +22,18 @@ const Header: React.FC = () => {
       setScrolled(window.scrollY > 50);
       
       // Determine active section based on scroll position
-      const sections = navItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 200; // Offset to trigger earlier
+      const sections = document.querySelectorAll('section');
+      let currentActiveSection = 'portfolio';
       
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          currentActiveSection = section.id;
         }
-      }
+      });
+      
+      setActiveSection(currentActiveSection);
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -60,16 +62,24 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <motion.a
-                key={item.href}
-                href={item.href}
-                whileHover={{ y: -2 }}
-                className={`transition-colors duration-200 ${activeSection === item.id 
-                  ? 'text-blue-600 dark:text-blue-400 font-medium' 
-                  : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'}`}
-              >
-                {item.label}
-              </motion.a>
+              <motion.div key={item.href} whileHover={{ y: -2 }}>
+                <a
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.querySelector(item.href);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    setActiveSection(item.id);
+                  }}
+                  className={`transition-colors duration-200 ${activeSection === item.id 
+                    ? 'text-blue-600 dark:text-blue-400 font-medium' 
+                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'}`}
+                >
+                  {item.label}
+                </a>
+              </motion.div>
             ))}
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -112,7 +122,15 @@ const Header: React.FC = () => {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMenuOpen(false);
+                  const element = document.querySelector(item.href);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                  setActiveSection(item.id);
+                }}
                 className={`block transition-colors duration-200 ${activeSection === item.id 
                   ? 'text-blue-600 dark:text-blue-400 font-medium' 
                   : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'}`}
