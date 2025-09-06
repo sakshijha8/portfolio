@@ -22,19 +22,24 @@ const Header: React.FC = () => {
       setScrolled(window.scrollY > 50);
       
       // Determine active section based on scroll position
-      const sections = document.querySelectorAll('section');
+      const sections = document.querySelectorAll('section[id]');
       let currentActiveSection = 'portfolio';
       
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.offsetHeight;
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        const sectionTop = (section as HTMLElement).offsetTop - 100;
+        const sectionHeight = (section as HTMLElement).offsetHeight;
+        const scrollPosition = window.scrollY + window.innerHeight / 3;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
           currentActiveSection = section.id;
         }
       });
       
       setActiveSection(currentActiveSection);
     };
+    
+    // Initial call to set active section on page load
+    handleScroll();
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -67,11 +72,13 @@ const Header: React.FC = () => {
                   href={item.href}
                   onClick={(e) => {
                     e.preventDefault();
-                    const element = document.querySelector(item.href);
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
-                    }
                     setActiveSection(item.id);
+                    setTimeout(() => {
+                      const element = document.querySelector(item.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }, 100);
                   }}
                   className={`transition-colors duration-200 ${activeSection === item.id 
                     ? 'text-blue-600 dark:text-blue-400 font-medium' 
@@ -123,14 +130,16 @@ const Header: React.FC = () => {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => {
-                  e.preventDefault();
-                  setIsMenuOpen(false);
-                  const element = document.querySelector(item.href);
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
-                  setActiveSection(item.id);
-                }}
+                   e.preventDefault();
+                   setIsMenuOpen(false);
+                   setActiveSection(item.id);
+                   setTimeout(() => {
+                     const element = document.querySelector(item.href);
+                     if (element) {
+                       element.scrollIntoView({ behavior: 'smooth' });
+                     }
+                   }, 100);
+                 }}
                 className={`block transition-colors duration-200 ${activeSection === item.id 
                   ? 'text-blue-600 dark:text-blue-400 font-medium' 
                   : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'}`}

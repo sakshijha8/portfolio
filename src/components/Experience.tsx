@@ -14,7 +14,7 @@ const Experience: React.FC = () => {
       title: 'Executive Web Developer',
       company: 'Capanicus',
       location: 'Mohali, Chandigarh, Punjab',
-      period: 'Sep 2024 – Present',
+      period: 'Nov 2024 – Present',
       points: [
         "Implemented telephony features (DID number provisioning, IVR configuration) and real-time calling using JsSIP and WebSockets.",
         "Designed and delivered real-time chat and presence features to improve user responsiveness and reliability.",
