@@ -23,7 +23,7 @@ const Experience: React.FC = () => {
         "Integrated HubSpot and Monday.com with two-way sync for contacts and tasks to streamline workflows.",
         "Developed custom browser extension features to extend web app functionality."
       ],
-      technologies: ['React', 'React query', 'Zustand', 'Socket.io', 'Tailwind CSS']
+      technologies: ['Reactjs', 'React query', 'Zustand', 'Socket.io', 'Tailwind CSS']
     },
     {
       title: 'Software Engineer',
@@ -36,7 +36,7 @@ const Experience: React.FC = () => {
         "Implemented e-commerce features and payment flows with Razorpay & Stripe; added QR-code and ONDC buyer integrations.",
         "Built interactive video player with speed control, zoom, rotate, and canvas drawing tools.",
       ],
-      technologies: ['React', 'Redux', 'Node.js', 'MongoDB', 'Express.js', 'AI/ML']
+      technologies: ['Reactjs', 'Nextjs', 'Redux', 'Node.js', 'MongoDB', 'Express.js', 'AI/ML']
     },
   ];
 
