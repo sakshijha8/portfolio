@@ -14,7 +14,7 @@ const Projects: React.FC = () => {
       title: "Shop-Zone",
       description:
         "A modern e-commerce frontend built with React, TypeScript, Redux, and Tailwind CSS. Features include a responsive UI, product listings, and state management with Redux.",
-      image: "/shop-zone.png",
+      image: "/portfolio/shop-zone.png",
       technologies: ["React", "TypeScript", "Redux", "Tailwind CSS"],
       liveUrl: "https://sakshijha8.github.io/Shop-Zone/",
       githubUrl: "https://github.com/sakshijha8/Shop-Zone",
@@ -23,7 +23,7 @@ const Projects: React.FC = () => {
       title: "AI Summarizer Extension",
       description:
         "A lightweight Chrome Extension that summarizes any webpage or YouTube video using AI. Provides concise summaries to help users save time and focus on key points.",
-      image: "/ai-summarizer.png",
+      image: "/portfolio/ai-summarizer.png",
       technologies: ["React", "TypeScript", "OpenAI API", "Chrome Extensions"],
       githubUrl: "https://github.com/sakshijha8/AI-Summarizer-Extension",
     },
@@ -31,7 +31,7 @@ const Projects: React.FC = () => {
       title: "Firebase Chat App",
       description:
         "A real-time chat application built with React.js and Firebase, featuring authentication, direct and group chats, message editing/deletion, and real-time sync.",
-      image: "/firebase-chat.png",
+      image: "/portfolio/firebase-chat.png",
       technologies: [
         "React",
         "Firebase",

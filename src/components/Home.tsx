@@ -167,11 +167,11 @@ const Home: React.FC = () => {
           ))}
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator - Hidden on mobile */}
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block"
         >
           <ArrowDown className="w-6 h-6 text-gray-500 dark:text-gray-400" />
         </motion.div>
